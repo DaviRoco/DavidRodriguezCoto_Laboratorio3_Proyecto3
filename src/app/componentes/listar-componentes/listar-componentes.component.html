@@ -1,0 +1,68 @@
+<div *ngIf="!componenteActual">
+  <h1 class="display-4">
+    Seleccione un componente del catálogo...
+  </h1>
+</div>
+<div class="list row">
+  <div class="col-md-6">
+    <div class="pb-2 mt-4 mb-2 border-bottom blockquote">
+      Catálogo
+    </div>
+    <div>
+      <div class="bd-example">
+        <table class="table table-striped">
+          <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr
+            *ngFor="let componente of componentes; let i = index"
+            [class.active]="i == currentIndex"
+            (click)="setActivarComponente(componente, i)">
+            <th scope="row">
+              {{componente.id}}
+            </th>
+            <th scope="row">
+              {{ componente.nombre }}
+            </th>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      <table class="table table-bordered">
+        <tbody>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div *ngIf="componenteActual">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Componente</h5>
+          <p class="card-text">Información detallada del componente seleccionado</p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"><label><strong>Nombre:</strong></label> {{ componenteActual.nombre }}</li>
+          <li class="list-group-item"><label><strong>Descripción:</strong></label>
+            {{ componenteActual.descripcion }}</li>
+          <li class="list-group-item"><label><strong>Fecha de fabricación:</strong></label>
+            {{ componenteActual.fechaFabricacion}}</li>
+          <li class="list-group-item"><label><strong>Número de parte:</strong></label>
+            {{ componenteActual.numeroParte }}</li>
+          <li class="list-group-item"><label><strong>Comentarios:</strong></label>
+            {{ componenteActual.comentarios }}</li>
+        </ul>
+        <div class="card-body">
+          <button type="button" class="btn btn-outline-dark" routerLink="/componentes/{{ componenteActual.id }}">
+            Editar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

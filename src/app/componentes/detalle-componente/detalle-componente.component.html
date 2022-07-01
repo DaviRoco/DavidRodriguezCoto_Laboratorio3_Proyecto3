@@ -1,0 +1,110 @@
+<div style="width: 400px; margin: auto;">
+  <div *ngIf="componenteActual" class="edit-form">
+    <form>
+      <h1 class="h3 mb-3 fw-normal">Producto</h1>
+      <button class="w-40 btn btn-lg btn-danger" (click)="borrarComponente()">
+        Borrar
+      </button>
+      <div class="form-floating">
+        <p>
+
+        </p>
+      </div>
+      <div class="form-floating">
+        <p>
+
+        </p>
+      </div>
+      <div class="form-floating">
+        <input
+          type="text"
+          class="form-control"
+          id="title"
+          [(ngModel)]="componenteActual.nombre"
+          name="nombre"
+        />
+        <label>Nombre</label>
+      </div>
+      <div class="form-floating">
+        <p>
+
+        </p>
+      </div>
+      <div class="form-floating">
+      <textarea class="form-control"
+                id="descripcion"
+                [(ngModel)]="componenteActual.descripcion"
+                name="descripcion"></textarea>
+        <label>Descripción</label>
+      </div>
+      <div class="form-floating">
+        <p>
+
+        </p>
+      </div>
+      <div class="form-floating">
+        <input
+          type="text"
+          class="form-control"
+          id="fechaFabricacion"
+          [(ngModel)]="componenteActual.fechaFabricacion"
+          name="fechaFabricacion"
+        />
+        <label>Fecha de fabricación</label>
+      </div>
+      <div class="form-floating">
+        <p>
+
+        </p>
+      </div>
+      <div class="form-floating">
+        <input
+          type="text"
+          class="form-control"
+          id="numeroParte"
+          [(ngModel)]="componenteActual.numeroParte"
+          name="numeroParte"
+        />
+        <label>Número de parte</label>
+      </div>
+      <div class="form-floating">
+        <p>
+
+        </p>
+      </div>
+      <div class="form-floating">
+     <textarea
+       class="form-control"
+       id="comentarios"
+       [(ngModel)]="componenteActual.comentarios"
+       name="comentarios"
+     ></textarea>
+        <label>Comentarios</label>
+      </div>
+      <div class="form-floating">
+        <p>
+
+        </p>
+      </div>
+      <button
+        type="submit"
+        class="w-100 btn btn-lg btn-info"
+        (click)="actualizarComponente()"
+      >
+        Actualizar
+      </button>
+      <div class="form-floating">
+        <p>
+
+        </p>
+      </div>
+      <button class="w-50 btn btn-lg btn-dark" routerLink="/componentes">Volver al catálogo</button>
+      <p>{{ mensaje }}</p>
+    </form>
+  </div>
+
+  <div *ngIf="!componenteActual">
+    <br/>
+    <p>No se puede acceder al producto...</p>
+  </div>
+</div>

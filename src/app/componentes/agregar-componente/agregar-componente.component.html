@@ -1,0 +1,78 @@
+<div style="width: 400px; margin: auto;">
+  <div class="submit-form">
+    <div *ngIf="!submitted">
+      <div class="form-group">
+        <label for="title">Nombre</label>
+        <input
+          type="text"
+          class="form-control"
+          id="title"
+          required
+          [(ngModel)]="componente.nombre"
+          name="title"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="descripcion">Descripción</label>
+        <input
+          class="form-control"
+          id="descripcion"
+          required
+          [(ngModel)]="componente.descripcion"
+          name="descripcion"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="fechaFabricacion">Fecha de fabricación</label>
+        <input
+          type="datetime-local"
+          class="form-control"
+          id="fechaFabricacion"
+          required
+          [(ngModel)]="componente.fechaFabricacion"
+          name="fechaFabricacion"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="numeroParte">Número de parte</label>
+        <input
+          class="form-control"
+          id="numeroParte"
+          required
+          [(ngModel)]="componente.numeroParte"
+          name="numeroParte"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="comentarios">Comentarios</label>
+        <input
+          class="form-control"
+          id="comentarios"
+          required
+          [(ngModel)]="componente.comentarios"
+          name="comentarios"
+        />
+      </div>
+      <p>
+
+      </p>
+      <button (click)="salvarComponente()" class="w-100 btn btn-lg btn-success">Enviar</button>
+      <p>
+
+      </p>
+      <button class="w-50 btn btn-lg btn-dark" routerLink="/componentes">Volver al catálogo</button>
+    </div>
+
+    <div *ngIf="submitted">
+      <h4>Producto Agregado!</h4>
+      <button class="w-50 btn btn-lg btn-success" (click)="nuevoComponente()">Agregar</button> <p></p>
+      <button class="w-50 btn btn-lg btn-dark" routerLink="/componentes">Volver al catálogo</button>
+    </div>
+  </div>
+</div>
+
+
